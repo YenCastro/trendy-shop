@@ -9,9 +9,11 @@ export class CatalogoProductos {
 
     this.productos = [];
     this.productosFiltrados = [];
+    this.listenersAttached = false;
 
     this.paginaActual = 1;
     this.productosPorPagina = 9;
+    this.filtroActual = new URLSearchParams(window.location.search).get("categoria") || "todos";
 
     this.categorias = {
       "ropa-hombre": [
@@ -89,18 +91,18 @@ export class CatalogoProductos {
 
     const respuestas = await Promise.all(peticiones);
 
-    this.productos = this.deduplicateById(respuestas.flat());
+      this.productos = this.deduplicateById(respuestas.flat());
 
-    this.productosFiltrados = [...this.productos];
+      this.productosFiltrados = [...this.productos];
 
-    this.paginaActual = 1;
-
-    this.renderizarPagina();
-    this.configurarPaginacion();
+      this.paginaActual = 1;
+      this.configurarPaginacion();
+      this.filtrarProductos(this.filtroActual);
   }
 
   filtrarProductos(tipoFiltro) {
     this.paginaActual = 1;
+    this.filtroActual = tipoFiltro;
 
     if (tipoFiltro === "todos") {
       this.productosFiltrados = [...this.productos];
@@ -190,6 +192,10 @@ export class CatalogoProductos {
   }
 
   configurarPaginacion() {
+    if (this.listenersAttached) {
+      return;
+    }
+
     this.botonAnterior.addEventListener("click", () => {
       if (this.paginaActual > 1) {
         this.paginaActual--;
@@ -203,6 +209,8 @@ export class CatalogoProductos {
         this.renderizarPagina();
       }
     });
+
+    this.listenersAttached = true;
   }
 
   actualizarPaginacion() {
