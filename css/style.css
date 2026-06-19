@@ -1,17 +1,22 @@
 :root {
     --nav-primary: #d17a5b;
     --nav-secondary: #e9ddcf;
-    --nav-bg: #faf9f6;
+    --nav-bg: #faf9f677;
     --nav-border: #666666;
     --nav-text: #1e1e1e;
     --font-primary: "Manrope", Arial, Helvetica, sans-serif;
     --font-heading: "Manrope", Arial, Helvetica, sans-serif;
+    --negro: #1e1e1e;
+    --blanco: #faf9f6;
+    --terracota: #d17a5b;
+    --beige: #e9ddcf;
+    --gris: #666666;
 }
 
 body {
     min-height: 100vh;
     margin: 0;
-    padding: 32px;
+    padding: 112px 32px 32px;
     font-family: var(--font-primary);
     background:
         radial-gradient(circle at top left, #faf9f6, transparent 30%),
@@ -20,19 +25,23 @@ body {
 }
 
 .glass-navbar {
-    width: min(1120px, 100%);
-    margin: 0 auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    padding: 14px 18px;
-    border: 1px solid rgba(209, 122, 91, 0.22);
-    border-radius: 999px;
+    padding: 14px 32px;
+    border-bottom: 1px solid rgba(209, 122, 91, 0.22);
     background: var(--nav-bg);
     color: var(--nav-text);
     backdrop-filter: blur(20px);
     box-shadow: 0 18px 40px rgba(209, 122, 91, 0.12);
+    box-sizing: border-box;
+    z-index: 1000;
 }
 
 .brand,
@@ -144,7 +153,7 @@ body {
     place-items: center;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--nav-secondary), var(--nav-primary));
-    color: var(--color-negro);
+    color: var(--negro);
     font-weight: 800;
 }
 
@@ -188,26 +197,16 @@ body {
     opacity: 0.7;
 }
 
-/****** PARTE INICIO *******/
-:root {
-    --negro: #1E1E1E;
-    --blanco: #FAF9F6;
-    --terracota: #D17A5B;
-    --beige: #E9DDCF;
-    --gris: #666666;
-}
-
 h1 {
-    color: #faf9f6;
+    color: var(--blanco);
 }
 
 .text-banner {
-    color: #faf9f6;
+    color: var(--blanco);
 }
 
-/* SECCIÓN HERO (INICIO) */
 .hero-container {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('../img/bannerInicio.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url("../img/bannerInicio.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -241,18 +240,21 @@ h1 {
 .btn-explorar-catalogo {
     border: none;
     background: var(--terracota);
-    color: white;
+    color: #ffffff;
     padding: 15px 30px;
     border-radius: 40px;
-    transition: .3s;
+    transition: 0.3s;
     cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-explorar-catalogo:hover {
     background: #b86647;
 }
 
-/* SECCIÓN DE BENEFICIOS */
 .beneficios {
     padding: 80px 0;
 }
@@ -263,7 +265,6 @@ h1 {
     margin-bottom: 10px;
 }
 
-/* SECCIÓN HISTORIA (mobile)*/
 .historia {
     display: flex;
     flex-direction: column;
@@ -321,22 +322,30 @@ h1 {
     margin-bottom: 0;
 }
 
-/* PRODUCTOS DESTACADOS */
 .productos {
     margin: 120px auto;
 }
 
+.productos-destacados-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 18px;
+    align-items: stretch;
+}
+
 .producto {
-    background: white;
+    background: #ffffff;
     border-radius: 25px;
     padding: 20px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, .08);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(209, 122, 91, 0.14);
 }
 
 .producto img {
     border-radius: 20px;
     width: 100%;
-    height: auto;
+    height: 200px;
+    object-fit: cover;
 }
 
 .producto h5 {
@@ -349,10 +358,45 @@ h1 {
     font-weight: 700;
 }
 
-/* BANNER DE CIERRE */
+.producto--link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.producto--link:hover,
+.producto--link:focus-visible {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 36px rgba(209, 122, 91, 0.18);
+    border-color: rgba(209, 122, 91, 0.3);
+}
+
+.producto__categoria {
+    display: inline-flex;
+    margin-top: 16px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(209, 122, 91, 0.14);
+    color: #a95b3f;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.producto--placeholder {
+    min-height: 240px;
+    display: grid;
+    place-items: center;
+}
+
+.producto__placeholder {
+    color: var(--gris);
+    font-weight: 700;
+}
+
 .banner {
     background: var(--negro);
-    color: white;
+    color: #ffffff;
     text-align: center;
     padding: 100px;
     border-radius: 35px;
@@ -365,9 +409,6 @@ h1 {
     color: #d9d9d9;
 }
 
-/* CONFIGU RESPONSIVE */
-
-/* Pantallas Grandes (Computadores) */
 @media (min-width: 992px) {
     .historia {
         flex-direction: row;
@@ -385,7 +426,24 @@ h1 {
     }
 }
 
-/* Pantallas Medianas y Chicas (Celulares y Tablets) */
+@media (max-width: 860px) {
+    .glass-navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 14px 20px;
+    }
+
+    .navbar-links {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .navbar-actions {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
 @media (max-width: 768px) {
     .hero-container {
         padding: 60px 0;
@@ -405,10 +463,13 @@ h1 {
         padding: 60px 30px;
         border-radius: 0;
     }
+
+    .productos-destacados-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 @media (max-width: 720px) {
-
     .site-footer__grid,
     .site-footer__bottom {
         grid-template-columns: 1fr;
@@ -416,20 +477,12 @@ h1 {
     }
 }
 
-@media (max-width: 860px) {
-    .glass-navbar {
-        border-radius: 28px;
-        flex-wrap: wrap;
-        justify-content: center;
+@media (max-width: 560px) {
+    body {
+        padding: 132px 20px 20px;
     }
 
-    .navbar-links {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .navbar-actions {
-        width: 100%;
-        justify-content: center;
+    .productos-destacados-grid {
+        grid-template-columns: 1fr;
     }
 }

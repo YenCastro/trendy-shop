@@ -3,6 +3,7 @@ import { Footer } from "./footer.js";
 import { SidebarMenu } from "./sidebar.js";
 import { CatalogoProductos } from "./catalogo.js";
 
+
 const navbar = new Navbar();
 navbar.render();
 
@@ -14,6 +15,7 @@ sideBarMenu.render();
 
 const catalogo = new CatalogoProductos("#contenedor-productos");
 catalogo.cargarProductos();
+
 
 const botonesFiltro = document.querySelectorAll(".btn-filtro");
 
