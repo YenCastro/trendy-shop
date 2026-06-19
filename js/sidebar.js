@@ -92,6 +92,7 @@ export class SidebarMenu {
         align-items: center;
         justify-content: space-between;
         gap: 12px;
+        margin-top: 60px;
         padding-bottom: 14px;
         border-bottom: 1px solid rgba(209, 122, 91, 0.2);
       }
