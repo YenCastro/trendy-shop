@@ -147,7 +147,39 @@ export class CatalogoProductos {
     this.estado.textContent = `Mostrando ${productosPagina.length} productos de ${this.productosFiltrados.length}.`;
 
     this.actualizarPaginacion();
+    this.attachCartEvents();
   }
+  attachCartEvents() {
+    const botones = document.querySelectorAll(".add-to-cart");
+
+    botones.forEach((boton) => {
+      boton.addEventListener("click", () => {
+        const id = Number(boton.dataset.id);
+
+        const producto = this.productos.find(
+          (item) => item.id === id
+);
+
+        const carrito =
+          JSON.parse(localStorage.getItem("carrito")) || [];
+
+        carrito.push({
+          id: producto.id,
+          title: producto.title,
+          price: producto.price,
+          thumbnail: producto.thumbnail,
+          quantity: 1
+        });
+
+        localStorage.setItem(
+          "carrito",
+          JSON.stringify(carrito)
+        );
+
+        console.log("Producto agregado");
+            });
+          });
+}
 
   getCardTemplate(producto) {
     const categoriaMostrar = this.getCategoriaMostrar(producto.category);
@@ -183,7 +215,10 @@ export class CatalogoProductos {
             <strong>Stock:</strong> ${producto.stock}
           </p>
 
-          <button type="button" class="primary-button">
+          <button type="button" 
+          class="primary-button add-to-cart"
+          data-id="${producto.id}"
+          >
             Agregar al carrito
           </button>
         </div>

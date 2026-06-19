@@ -34,7 +34,7 @@ export class Navbar {
           ${this.getLinksHTML()}
         </nav>
         <div class="navbar-actions">
-          <button class="icon-button icon-button--label js-cart-trigger" type="button">Carrito</button>
+          <button class="icon-button icon-button--label js-cart-trigger" type="button"><i class="bi bi-cart3"></i></button>
         
         </div>
       </header>
