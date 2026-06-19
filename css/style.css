@@ -109,6 +109,7 @@ body {
     background: rgba(15, 23, 42, 0.92);
     box-shadow: 0 18px 34px rgba(15, 23, 42, 0.34);
 }
+
 .site-footer {
     width: min(1120px, 100%);
     margin: 48px auto 0;
@@ -187,13 +188,234 @@ body {
     opacity: 0.7;
 }
 
+/****** PARTE INICIO *******/
+:root {
+    --negro: #1E1E1E;
+    --blanco: #FAF9F6;
+    --terracota: #D17A5B;
+    --beige: #E9DDCF;
+    --gris: #666666;
+}
+
+h1 {
+    color: #faf9f6;
+}
+
+.text-banner {
+    color: #faf9f6;
+}
+
+/* SECCIÓN HERO (INICIO) */
+.hero-container {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('../img/bannerInicio.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-text {
+    max-width: 550px;
+    margin-left: 8%;
+    color: #ffffff;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    color: #f0f0f0;
+}
+
+.btn-explorar-catalogo {
+    border: none;
+    background: var(--terracota);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 40px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.btn-explorar-catalogo:hover {
+    background: #b86647;
+}
+
+/* SECCIÓN DE BENEFICIOS */
+.beneficios {
+    padding: 80px 0;
+}
+
+.beneficios-icono {
+    font-size: 2.5rem;
+    color: #c8846c;
+    margin-bottom: 10px;
+}
+
+/* SECCIÓN HISTORIA (mobile)*/
+.historia {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 60px 20px;
+}
+
+.historia-image-wrapper {
+    width: 100%;
+    max-width: 450px;
+}
+
+.img-historia {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    object-fit: cover;
+}
+
+.historia-content {
+    width: 100%;
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.historia-content .subtitle {
+    color: #c8846c;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.historia-content h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #111111;
+    line-height: 1.25;
+    margin-bottom: 24px;
+}
+
+.historia-text p {
+    font-size: 1.05rem;
+    color: #555555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.historia-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* PRODUCTOS DESTACADOS */
+.productos {
+    margin: 120px auto;
+}
+
+.producto {
+    background: white;
+    border-radius: 25px;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .08);
+}
+
+.producto img {
+    border-radius: 20px;
+    width: 100%;
+    height: auto;
+}
+
+.producto h5 {
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+.producto p {
+    color: var(--terracota);
+    font-weight: 700;
+}
+
+/* BANNER DE CIERRE */
+.banner {
+    background: var(--negro);
+    color: white;
+    text-align: center;
+    padding: 100px;
+    border-radius: 35px;
+    width: 80%;
+    margin: 120px auto;
+}
+
+.banner p {
+    margin: 25px 0;
+    color: #d9d9d9;
+}
+
+/* CONFIGU RESPONSIVE */
+
+/* Pantallas Grandes (Computadores) */
+@media (min-width: 992px) {
+    .historia {
+        flex-direction: row;
+        justify-content: center;
+        gap: 50px;
+        padding: 100px 0;
+    }
+
+    .historia-image-wrapper {
+        width: 42%;
+    }
+
+    .historia-content {
+        width: 48%;
+    }
+}
+
+/* Pantallas Medianas y Chicas (Celulares y Tablets) */
+@media (max-width: 768px) {
+    .hero-container {
+        padding: 60px 0;
+    }
+
+    .hero-text {
+        margin-left: 5%;
+        padding-right: 5%;
+    }
+
+    .hero-text h1 {
+        font-size: 2.8rem;
+    }
+
+    .banner {
+        width: 100%;
+        padding: 60px 30px;
+        border-radius: 0;
+    }
+}
+
 @media (max-width: 720px) {
+
     .site-footer__grid,
     .site-footer__bottom {
         grid-template-columns: 1fr;
         flex-direction: column;
     }
 }
+
 @media (max-width: 860px) {
     .glass-navbar {
         border-radius: 28px;
