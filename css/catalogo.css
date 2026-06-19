@@ -183,9 +183,9 @@ body {
 
 .pricing-lab {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 360px));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 18px;
-    justify-content: start;
+    align-items: stretch;
 }
 
 .pricing-lab__card {

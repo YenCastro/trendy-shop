@@ -18,5 +18,10 @@ export function agregarProductoAlCarrito(producto){
 }
 
 export function calcularTotal(){
-    return carrito.reduce((acumulado, item) => acumulado + (item.precio * item.cantidad), 0);
+    return carrito.reduce((acumulado, item) => {
+        const precio = item.precio ?? item.price ?? 0;
+        const cantidad = item.cantidad ?? item.quantity ?? 1;
+
+        return acumulado + (precio * cantidad);
+    }, 0);
 }

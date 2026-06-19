@@ -4,6 +4,10 @@ const contenedor = document.getElementById('contenedor-carrito');
 const totalElemento = document.getElementById('total-compra');
 
 export function renderizarCarrito(listaCarrito) {
+    if (!contenedor || !totalElemento) {
+        return;
+    }
+
     contenedor.innerHTML = ``;
 
     if (listaCarrito.length === 0) {
@@ -27,18 +31,23 @@ export function renderizarCarrito(listaCarrito) {
     }
 
     listaCarrito.forEach(item => {
+        const imagen = item.imagen ?? item.thumbnail ?? "";
+        const nombre = item.nombre ?? item.title ?? "Producto";
+        const precio = item.precio ?? item.price ?? 0;
+        const cantidad = item.cantidad ?? item.quantity ?? 1;
+
         const fila = document.createElement(`tr`);
     
         fila.innerHTML = `
             <td>
                 <div class="d-flex align-items-center gap-2">
-                    <img src="${item.imagen}" alt="${item.nombre}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px;">
-                    <span class="fw-medium">${item.nombre}</span>
+                    <img src="${imagen}" alt="${nombre}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px;">
+                    <span class="fw-medium">${nombre}</span>
                 </div>
             </td>
-            <td>$${item.precio.toLocaleString()}</td>
-            <td class="text-center">${item.cantidad}</td>
-            <td class="fw-bold">$${(item.precio * item.cantidad).toLocaleString()}</td>
+            <td>$${precio.toLocaleString()}</td>
+            <td class="text-center">${cantidad}</td>
+            <td class="fw-bold">$${(precio * cantidad).toLocaleString()}</td>
             <td class="text-center">
                 <button class="btn btn-sm btn-outline-danger btn-eliminar" data-id="${item.id}" style="border-radius: 999px;">
                     Eliminar

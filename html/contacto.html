@@ -10,24 +10,85 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/contacto.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
 
 <body>
+    <main class="contacto-page container py-5">
+        <section class="contacto-info row align-items-center g-4">
+            <div class="col-lg-6">
+                <div class="contacto-copy">
+                    <span class="contacto-etiqueta">Nuestra ubicacion</span>
+                    <h2 class="fw-bold mb-3">Visita TrendyShop</h2>
 
-    <form id="contactForm" novalidate class="demo-form">
-        <input id="contactName" type="text" placeholder="Nombre" required minlength="3">
-        <small class="field-error" data-error="contactName"></small>
+                    <p class="lead">
+                        Descubre nuestra seleccion de productos y recibe atencion personalizada.
+                    </p>
 
-        <input id="contactEmail" type="email" placeholder="Correo" required>
-        <small class="field-error" data-error="contactEmail"></small>
+                    <p>
+                        Nos encontramos en una ubicacion estrategica para brindarte la mejor atencion.
+                        Nuestro equipo estara encantado de ayudarte a encontrar lo que necesitas.
+                    </p>
 
-        <textarea id="contactMessage" placeholder="Mensaje" required minlength="10"></textarea>
-        <small class="field-error" data-error="contactMessage"></small>
+                    <ul class="list-group list-group-flush contacto-lista">
+                        <li class="list-group-item">Santa Marta, Colombia</li>
+                        <li class="list-group-item">Lunes a Sabado: 9:00 AM - 7:00 PM</li>
+                        <li class="list-group-item">+57 300 000 0000</li>
+                    </ul>
 
-        <button type="submit">Enviar</button>
-    </form>
+                    <button
+                        class="contacto-boton mt-4"
+                        type="button"
+                        onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=Centro+Historico+de+Santa+Marta', '_blank')">
+                        Como llegar
+                    </button>
+                </div>
+            </div>
 
-    
+            <div class="col-lg-6">
+                <div class="card shadow border-0 contacto-mapa">
+                    <div class="card-body p-0">
+                        <div class="ratio ratio-4x3">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.2253446186905!2d-74.21436142590277!3d11.244826688933854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef4f506cf27419d%3A0x5c450271ffd02883!2sCentro%20historico%20Santa%20Marta!5e0!3m2!1ses-419!2sco!4v1781900677636!5m2!1ses-419!2sco"
+                                allowfullscreen
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contenedor-form mt-4">
+            <div class="contacto-visual">
+                <h2 class="fw-bold mb-3">Cuenta con nosotros</h2>
+                <p>Escribenos si tienes dudas, quieres mas informacion o necesitas ayuda con tu compra.</p>
+                <img src="../img/imagen1.gif" alt="Ilustracion de contacto">
+            </div>
+
+            <form id="contactForm" novalidate class="demo-form">
+                <h2>Contactanos</h2>
+
+                <input id="contactName" type="text" placeholder="Nombre" required minlength="3">
+                <small class="field-error" data-error="contactName"></small>
+
+                <input id="contactLastName" type="text" placeholder="Apellido" required minlength="3">
+                <small class="field-error" data-error="contactLastName"></small>
+
+                <input id="contactEmail" type="email" placeholder="Correo" required>
+                <small class="field-error" data-error="contactEmail"></small>
+
+                <input id="contactPhone" type="tel" placeholder="Telefono" required>
+                <small class="field-error" data-error="contactPhone"></small>
+
+                <textarea id="contactMessage" placeholder="Mensaje" required minlength="10"></textarea>
+                <small class="field-error" data-error="contactMessage"></small>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
     <div id="toastContainer"></div>
     <script type="module" src="../js/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
