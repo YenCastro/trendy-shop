@@ -1,3 +1,7 @@
+/* ==========================================================================
+   1. VARIABLES Y CONFIGURACIÓN GENERAL
+   ========================================================================== */
+
 :root {
     --nav-primary: #d17a5b;
     --nav-secondary: #e9ddcf;
@@ -13,16 +17,41 @@
     --gris: #666666;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     min-height: 100vh;
     margin: 0;
-    padding: 112px 32px 32px;
+    /* CORRECCIÓN: Quitamos paddings laterales para permitir elementos "Full-Width" */
+    padding: 90px 0 32px 0; 
     font-family: var(--font-primary);
     background:
         radial-gradient(circle at top left, #faf9f6, transparent 30%),
         radial-gradient(circle at bottom right, #e9ddcf, transparent 36%),
         linear-gradient(135deg, #faf9f6, #faf9f6);
 }
+
+/* Limitador de ancho global para el contenido interno de las secciones */
+.contenedor {
+    width: 90%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    color: var(--blanco);
+}
+
+.text-banner {
+    color: var(--blanco);
+}
+
+/* ==========================================================================
+   2. MENÚ DE NAVEGACIÓN (NAVBAR)
+   ========================================================================== */
 
 .glass-navbar {
     position: fixed;
@@ -40,7 +69,6 @@ body {
     color: var(--nav-text);
     backdrop-filter: blur(20px);
     box-shadow: 0 18px 40px rgba(209, 122, 91, 0.12);
-    box-sizing: border-box;
     z-index: 1000;
 }
 
@@ -86,13 +114,11 @@ body {
 .icon-button:hover,
 .dropdown__menu button:hover {
     transform: translateY(-1px);
-    background: transparent;
     color: #e4764e;
     text-shadow: 0 0 10px #d17a5bcc;
 }
 
 .nav-link.is-active {
-    border-color: transparent;
     background: linear-gradient(135deg, var(--nav-secondary), var(--nav-primary));
     box-shadow: 0 12px 24px #d17a5b56;
 }
@@ -101,6 +127,7 @@ body {
     min-width: 72px;
 }
 
+/* Menú Desplegable (Dropdown) */
 .dropdown {
     position: relative;
 }
@@ -118,6 +145,231 @@ body {
     background: rgba(15, 23, 42, 0.92);
     box-shadow: 0 18px 34px rgba(15, 23, 42, 0.34);
 }
+
+/* ==========================================================================
+   3. SECCIÓN HERO (INICIO)
+   ========================================================================== */
+
+.hero-container {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url("../img/bannerInicio.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-text {
+    max-width: 550px;
+    margin-left: 8%;
+    color: #ffffff;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    color: #f0f0f0;
+}
+
+.btn-explorar-catalogo {
+    border: none;
+    background: var(--terracota);
+    color: #ffffff;
+    padding: 15px 30px;
+    border-radius: 40px;
+    transition: 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-explorar-catalogo:hover {
+    background: #b86647;
+}
+
+/* ==========================================================================
+   4. SECCIÓN BENEFICIOS & HISTORIA
+   ========================================================================== */
+
+.beneficios {
+    padding: 80px 0;
+}
+
+.beneficios-icono {
+    font-size: 2.5rem;
+    color: #c8846c;
+    margin-bottom: 10px;
+}
+
+/* Historia de la marca */
+.historia {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 60px 20px;
+}
+
+.historia-image-wrapper {
+    width: 100%;
+    max-width: 450px;
+}
+
+.img-historia {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    object-fit: cover;
+}
+
+.historia-content {
+    width: 100%;
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.historia-content .subtitle {
+    color: #c8846c;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.historia-content h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #111111;
+    line-height: 1.25;
+    margin-bottom: 24px;
+}
+
+.historia-text p {
+    font-size: 1.05rem;
+    color: #555555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.historia-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   5. SECCIÓN PRODUCTOS
+   ========================================================================== */
+
+.productos {
+    margin: 120px auto;
+}
+
+.productos-destacados-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 18px;
+    align-items: stretch;
+}
+
+.producto {
+    background: #ffffff;
+    border-radius: 25px;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(209, 122, 91, 0.14);
+}
+
+.producto img {
+    border-radius: 20px;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.producto h5 {
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+.producto p {
+    color: var(--terracota);
+    font-weight: 700;
+}
+
+.producto--link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.producto--link:hover,
+.producto--link:focus-visible {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 36px rgba(209, 122, 91, 0.18);
+    border-color: rgba(209, 122, 91, 0.3);
+}
+
+.producto__categoria {
+    display: inline-flex;
+    margin-top: 16px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(209, 122, 91, 0.14);
+    color: #a95b3f;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.producto--placeholder {
+    min-height: 240px;
+    display: grid;
+    place-items: center;
+}
+
+.producto__placeholder {
+    color: var(--gris);
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   6. SECCIÓN BANNER INTERMEDIO
+   ========================================================================== */
+
+.banner {
+    background: var(--negro);
+    color: #ffffff;
+    text-align: center;
+    padding: 100px;
+    border-radius: 35px;
+    width: 80%;
+    margin: 120px auto;
+}
+
+.banner p {
+    margin: 25px 0;
+    color: #d9d9d9;
+}
+
+/* ==========================================================================
+   7. PIE DE PÁGINA (FOOTER)
+   ========================================================================== */
 
 .site-footer {
     width: min(1120px, 100%);
@@ -197,217 +449,9 @@ body {
     opacity: 0.7;
 }
 
-h1 {
-    color: var(--blanco);
-}
-
-.text-banner {
-    color: var(--blanco);
-}
-
-.hero-container {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url("../img/bannerInicio.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    min-height: 80vh;
-    display: flex;
-    align-items: center;
-}
-
-.hero-text {
-    max-width: 550px;
-    margin-left: 8%;
-    color: #ffffff;
-    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
-}
-
-.hero-text h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    line-height: 1.2;
-}
-
-.hero-text p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    line-height: 1.6;
-    color: #f0f0f0;
-}
-
-.btn-explorar-catalogo {
-    border: none;
-    background: var(--terracota);
-    color: #ffffff;
-    padding: 15px 30px;
-    border-radius: 40px;
-    transition: 0.3s;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.btn-explorar-catalogo:hover {
-    background: #b86647;
-}
-
-.beneficios {
-    padding: 80px 0;
-}
-
-.beneficios-icono {
-    font-size: 2.5rem;
-    color: #c8846c;
-    margin-bottom: 10px;
-}
-
-.historia {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    padding: 60px 20px;
-}
-
-.historia-image-wrapper {
-    width: 100%;
-    max-width: 450px;
-}
-
-.img-historia {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    display: block;
-    object-fit: cover;
-}
-
-.historia-content {
-    width: 100%;
-    max-width: 550px;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-}
-
-.historia-content .subtitle {
-    color: #c8846c;
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-}
-
-.historia-content h2 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #111111;
-    line-height: 1.25;
-    margin-bottom: 24px;
-}
-
-.historia-text p {
-    font-size: 1.05rem;
-    color: #555555;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.historia-text p:last-child {
-    margin-bottom: 0;
-}
-
-.productos {
-    margin: 120px auto;
-}
-
-.productos-destacados-grid {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 18px;
-    align-items: stretch;
-}
-
-.producto {
-    background: #ffffff;
-    border-radius: 25px;
-    padding: 20px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(209, 122, 91, 0.14);
-}
-
-.producto img {
-    border-radius: 20px;
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.producto h5 {
-    margin-top: 20px;
-    font-weight: 700;
-}
-
-.producto p {
-    color: var(--terracota);
-    font-weight: 700;
-}
-
-.producto--link {
-    display: block;
-    color: inherit;
-    text-decoration: none;
-    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
-}
-
-.producto--link:hover,
-.producto--link:focus-visible {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 36px rgba(209, 122, 91, 0.18);
-    border-color: rgba(209, 122, 91, 0.3);
-}
-
-.producto__categoria {
-    display: inline-flex;
-    margin-top: 16px;
-    padding: 6px 10px;
-    border-radius: 999px;
-    background: rgba(209, 122, 91, 0.14);
-    color: #a95b3f;
-    font-size: 0.78rem;
-    font-weight: 700;
-}
-
-.producto--placeholder {
-    min-height: 240px;
-    display: grid;
-    place-items: center;
-}
-
-.producto__placeholder {
-    color: var(--gris);
-    font-weight: 700;
-}
-
-.banner {
-    background: var(--negro);
-    color: #ffffff;
-    text-align: center;
-    padding: 100px;
-    border-radius: 35px;
-    width: 80%;
-    margin: 120px auto;
-}
-
-.banner p {
-    margin: 25px 0;
-    color: #d9d9d9;
-}
+/* ==========================================================================
+   8. MEDIA QUERIES (DISEÑO ADAPTATIVO)
+   ========================================================================== */
 
 @media (min-width: 992px) {
     .historia {
@@ -479,7 +523,8 @@ h1 {
 
 @media (max-width: 560px) {
     body {
-        padding: 132px 20px 20px;
+        /* Corrección de padding lateral en móvil */
+        padding: 132px 0 20px 0; 
     }
 
     .productos-destacados-grid {
